@@ -9,7 +9,7 @@ from urllib.request import urlopen
 
 AUTH0_DOMAIN = 'rayan-dev.us.auth0.com'
 ALGORITHMS = ['RS256']
-API_AUDIENCE = 'bookmarks'
+API_AUDIENCE = 'bookmark'
 
 
 # AuthError Exception
