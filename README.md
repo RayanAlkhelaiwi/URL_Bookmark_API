@@ -7,9 +7,9 @@ A RESTful API that provides Bookmarked URLs to visit later.
 The backend code follows [PEP-8 style guidelines](https://www.python.org/dev/peps/pep-0008/).
 
 ### Getting Started
-- Base URL: Currently this backend app can only be run locally. It's hosted by default at `127.0.0.1:5000` which is set as a proxy in the fronend configuration. (To be hosted in Heroku)
+- Base URL: `https://url-bookmark.herokuapp.com/`
 
-- Authentication: `http://rayan-dev.us.auth0.com/authorize?audience=bookmark&response_type=token&client_id=JwhbkT2LCs66l3l3Yh8Q8PJ4HFv7xnhb&redirect_uri=https://127.0.0.1:8080/login-results`
+- Authentication: `https://bit.ly/2Ipsvrl`
 
 From the `/backend` folder run `pip install requirements.txt`. All required packages are included in the requirements file.
 
