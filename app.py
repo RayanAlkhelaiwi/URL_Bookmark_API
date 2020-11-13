@@ -7,6 +7,19 @@ from flask_cors import CORS
 from models import setup_db, Bookmark, Category
 from auth import AuthError, requires_auths
 
+
+app = Flask(__name__)
+setup_db(app)
+CORS(app)
+
+# @app.after_request
+# def after_request(response):
+#     response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization, true')
+#     response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
+#     return response
+
+# Endpoints
+
 items_per_page = 5
 def pagination(request, selection):
     '''
@@ -20,18 +33,6 @@ def pagination(request, selection):
     current_items = items[start:end]
 
     return current_items
-
-app = Flask(__name__)
-setup_db(app)
-CORS(app)
-
-# @app.after_request
-# def after_request(response):
-#     response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization, true')
-#     response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
-#     return response
-
-# Endpoints
 
 @app.route('/')
 def index():
