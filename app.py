@@ -5,7 +5,7 @@ import json
 from flask_cors import CORS
 
 from models import setup_db, Bookmark, Category
-from auth import AuthError, requires_auths
+from auth import AuthError, requires_auth
 
 
 app = Flask(__name__)
