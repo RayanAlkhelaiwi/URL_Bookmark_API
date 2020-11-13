@@ -21,7 +21,7 @@ export FLASK_ENV=development
 flask run
 ```
 
-**Frontend**
+**Frontend** (Not Applicable currently)
 
 If applicable; inside the `/frontend` folder, run the following commands to start the client:
 
