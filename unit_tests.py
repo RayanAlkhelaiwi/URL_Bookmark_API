@@ -3,8 +3,8 @@ import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
 
-from backend.api import create_app
-from backend.database.models import setup_db, Bookmark, Category
+from app import app
+from models import setup_db, Bookmark, Category
 
 
 admin_token = os.environ['AUTH0_ADMIN_TOKEN']
@@ -129,13 +129,13 @@ class BookmarkTestCase(unittest.TestCase):
             Test for updating a bookmark by admin
         """
 
-        #! Increment bookmark_id before execution
+        # ! Increment bookmark_id before execution
         bookmark_id = 5
 
         self.headers.update({'Authorization': 'Bearer ' + str(admin_token)})
 
-        res = self.client().patch(
-            '/bookmarks/' + str(bookmark_id), json=self.new_bookmark, headers=self.headers)
+        res = self.client().patch('/bookmarks/' + str(bookmark_id),
+                                  json=self.new_bookmark, headers=self.headers)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -160,12 +160,13 @@ class BookmarkTestCase(unittest.TestCase):
             Test for deleting a bookmark by admin
         """
 
-        #! Increment bookmark_id before execution
+        # ! Increment bookmark_id before execution
         bookmark_id = 9
 
         self.headers.update({'Authorization': 'Bearer ' + str(user_token)})
 
-        res = self.client().delete('/bookmarks/' + str(bookmark_id), headers=self.headers)
+        res = self.client().delete('/bookmarks/' + str(bookmark_id),
+                                   headers=self.headers)
         data = json.loads(res.data)
 
         bookmark = Bookmark.query.filter(
