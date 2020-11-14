@@ -7,20 +7,23 @@ from flask_cors import CORS
 from models import setup_db, Bookmark, Category
 from auth import AuthError, requires_auth
 
-
 app = Flask(__name__)
 setup_db(app)
 CORS(app)
 
+
 # @app.after_request
 # def after_request(response):
-#     response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization, true')
-#     response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
+#     response.headers.add('Access-Control-Allow-Headers',
+#                          'Content-Type, Authorization, true')
+#     response.headers.add('Access-Control-Allow-Methods',
+#                          'GET, POST, PATCH, DELETE, OPTIONS')
 #     return response
 
-# Endpoints
 
 items_per_page = 5
+
+
 def pagination(request, selection):
     '''
         To specify the number of items of both bookmarks and categories to display per page
@@ -33,6 +36,9 @@ def pagination(request, selection):
     current_items = items[start:end]
 
     return current_items
+
+
+# Endpoints
 
 @app.route('/')
 def index():
@@ -67,8 +73,8 @@ def get_bookmarks():
 def get_categories(jwt):
     '''
         GET /categories
-            Private endpoint to list the categories of the bookmarks and their importance
-            With 'get:categories' permission
+            Private endpoint to list categories of bookmarks & their importance
+            - With 'get:categories' permission
     '''
     categories = [category for category in Category.query.all()]
     paginated_categories = pagination(request, categories)
@@ -88,7 +94,7 @@ def create_bookmark(jwt):
     '''
         POST /bookmarks
             Private endpoint to submit a url as a bookmark
-            With 'post:bookmarks' permission
+            - With 'post:bookmarks' permission
     '''
     body = request.get_json()
 
@@ -116,7 +122,7 @@ def update_bookmark(jwt, id):
     '''
         PATCH /bookmarks
             Private endpoint to update a bookmark
-            With 'patch:bookmarks' permission
+            - With 'patch:bookmarks' permission
     '''
     try:
         bookmark = Bookmark.query.filter(Bookmark.id == id).one_or_none()
@@ -148,7 +154,7 @@ def delete_bookmark(jwt, id):
     '''
         DELETE /bookmarks
             Private endpoint to delete a bookmark
-            With 'delete:bookmarks' permission
+            - With 'delete:bookmarks' permission
     '''
     try:
         bookmark = Bookmark.query.filter(Bookmark.id == id).one_or_none()
@@ -215,4 +221,3 @@ def auth_error(auth_error):
         "error": auth_error.status_code,
         "message": auth_error.error
     }), 401
-
