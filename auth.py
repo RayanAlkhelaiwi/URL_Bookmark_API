@@ -86,7 +86,7 @@ def check_permissions(permission, payload):
 def verify_decode_jwt(token):
     '''
         To verify, decode and validate jwt token
-        NOTE: urlopen has a common certificate error described here: https://stackoverflow.com/questions/50236117/scraping-ssl-certificate-verify-failed-error-for-http-en-wikipedia-org
+        NOTE: urlopen has a common certificate error described below: bit.ly/3pol7Nv
     '''
     jsonurl = urlopen(f'https://{AUTH0_DOMAIN}/.well-known/jwks.json')
     jwks = json.loads(jsonurl.read())
@@ -144,7 +144,8 @@ def verify_decode_jwt(token):
 def requires_auth(permission=''):
     '''
         Decorator to obtain authorization if required by an endpoint.
-        Uses the predefined functions to get, verify, decode, validate, and check jwt token and permissions
+        Uses the predefined functions to get, verify, decode, validate, 
+        and check jwt token and permissions
     '''
     def requires_auth_decorator(f):
         @wraps(f)
