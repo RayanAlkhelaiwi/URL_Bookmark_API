@@ -65,6 +65,12 @@ The Error types the API returns when requests fail are:
 | 405 | Method Not Allowed |
 | 422 | Unprocessable Entity |
 
+### Roles and Permissions
+The current permissions are: `get:categories`, `post:bookmarks`, `patch:bookmarks`, and `delete:bookmarks`.
+The current roles for this web app are `user` and `admin` in the following arrangement:
+- `user` role has the following permissions: `get:categories` and `post:bookmarks`.
+- `admin` role has _all_ the permissions listed above.
+
 ### Endpoints
 **GET /bookmarks**
 
@@ -73,7 +79,7 @@ Returns a list of bookmarked URLs. Results are paginated in groups of 5. Include
 * Sample Request:
 
 ```
-curl -X GET http://127.0.0.1:5000/bookmarks
+curl -X GET https://url-bookmark.herokuapp.com/bookmarks
 ```
 
 * Sample Response:
@@ -118,7 +124,7 @@ Returns a list of categories of the bookmarks and their importance. Results are 
 * Sample Request:
 
 ```
-curl -X GET http://127.0.0.1:5000/categories
+curl -X GET https://url-bookmark.herokuapp.com/categories
 ```
 
 * Sample Response:
@@ -148,7 +154,7 @@ Creates a new URL bookmark by submitting the information for a title and its URL
 * Sample Request:
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"title":"Personal Site", "url":"https://rayan.dev"}' http://127.0.0.1:5000/bookmarks
+curl -X POST -H "Content-Type: application/json" -d '{"title":"Personal Site", "url":"https://rayan.dev"}' https://url-bookmark.herokuapp.com/bookmarks
 ```
 
 * Sample Response:
@@ -198,7 +204,7 @@ Updates the bookmark info using the bookmark's ID. Returns the ID of the deleted
 * Sample Request:
 
 ```
-curl -X PATCH -H "Content-Type: application/json" -d '{"title":"Personal Site", "url":"https://rayan.dev"}' http://127.0.0.1:5000/bookmarks/5
+curl -X PATCH -H "Content-Type: application/json" -d '{"title":"Personal Site", "url":"https://rayan.dev"}' https://url-bookmark.herokuapp.com/bookmarks/5
 ```
 
 * Sample Response:
@@ -221,7 +227,7 @@ Deletes the bookmark with the given ID. Returns the ID of the deleted bookmark a
 * Sample Request:
 
 ```
-curl -X DELETE http://127.0.0.1:5000/bookmarks/4
+curl -X DELETE https://url-bookmark.herokuapp.com/bookmarks/4
 ```
 
 * Sample Response:
