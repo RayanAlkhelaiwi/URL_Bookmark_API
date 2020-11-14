@@ -69,7 +69,7 @@ The Error types the API returns when requests fail are:
 The current permissions are: `get:categories`, `post:bookmarks`, `patch:bookmarks`, and `delete:bookmarks`.
 The current roles for this web app are `user` and `admin` in the following arrangement:
 - `user` role has the following permissions: `get:categories` and `post:bookmarks`.
-- `admin` role has _all_ the permissions listed above.
+- `admin` role has *all* the permissions listed above.
 
 ### Endpoints
 **GET /bookmarks**
