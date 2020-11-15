@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import (Column, String, Integer, 
+from sqlalchemy import (Column, String, Integer,
                         Boolean, create_engine, ForeignKey)
 from flask_sqlalchemy import SQLAlchemy
 import json
@@ -10,6 +10,7 @@ database_path = os.environ['DATABASE_URL']
 
 
 db = SQLAlchemy()
+
 
 def setup_db(app, database_path=database_path):
     '''
