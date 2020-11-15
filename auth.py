@@ -86,7 +86,8 @@ def check_permissions(permission, payload):
 def verify_decode_jwt(token):
     '''
         To verify, decode and validate jwt token
-        NOTE: urlopen has a common certificate error described below: bit.ly/3pol7Nv
+        NOTE: urlopen has a common certificate error
+              described below: https://bit.ly/3pol7Nv
     '''
     jsonurl = urlopen(f'https://{AUTH0_DOMAIN}/.well-known/jwks.json')
     jwks = json.loads(jsonurl.read())
@@ -128,7 +129,8 @@ def verify_decode_jwt(token):
         except jwt.JWTClaimsError:
             raise AuthError({
                 'code': 'invalid_claims',
-                'description': 'Incorrect claims. Please, check the audience and issuer.'
+                'description': 'Incorrect claims. Please, '
+                + 'check the audience and issuer.'
             }, 401)
         except Exception:
             raise AuthError({
@@ -144,7 +146,7 @@ def verify_decode_jwt(token):
 def requires_auth(permission=''):
     '''
         Decorator to obtain authorization if required by an endpoint.
-        Uses the predefined functions to get, verify, decode, validate, 
+        Uses the predefined functions to get, verify, decode, validate,
         and check jwt token and permissions
     '''
     def requires_auth_decorator(f):
