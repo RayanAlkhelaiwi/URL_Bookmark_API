@@ -26,7 +26,8 @@ items_per_page = 5
 
 def pagination(request, selection):
     '''
-        To specify the number of items of both bookmarks and categories to display per page
+        To specify the number of items of both bookmarks
+        and categories to display per page
     '''
     page = request.args.get('page', 1, type=int)
     start = (page - 1) * items_per_page
