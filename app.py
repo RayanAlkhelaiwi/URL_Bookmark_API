@@ -1,5 +1,8 @@
 import os
-from flask import Flask, request, jsonify, abort
+from flask import (Flask,
+                   request,
+                   jsonify,
+                   abort)
 from sqlalchemy import exc
 import json
 from flask_cors import CORS
@@ -99,8 +102,8 @@ def create_bookmark(jwt):
     '''
     body = request.get_json()
 
-    new_title = body.get('title', None)
-    new_url = body.get('url', None)
+    new_title = body.get('title')
+    new_url = body.get('url')
 
     try:
         bookmark = Bookmark(title=new_title, url=new_url)
@@ -113,7 +116,7 @@ def create_bookmark(jwt):
             'created': bookmark.format(),
             'bookmarks': bookmarks
         })
-    except:
+    except ConnectionError:
         return unprocessable(422)
 
 
@@ -145,7 +148,7 @@ def update_bookmark(jwt, id):
             'bookmark': bookmark.format()
         })
 
-    except:
+    except ConnectionError:
         return unprocessable(422)
 
 
@@ -170,7 +173,7 @@ def delete_bookmark(jwt, id):
             'deleted': id
         })
 
-    except:
+    except ConnectionError:
         return unprocessable(422)
 
 
