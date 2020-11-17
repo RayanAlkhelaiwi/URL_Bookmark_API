@@ -27,7 +27,7 @@ export FLASK_APP=api.py
 export FLASK_ENV=development
 flask run
 ```
-For `Windows` system, replace `export` command with `set` (e.g. `set FLASK_APP=api.py`)
+For `Windows` system, replace `export` command with `set` (i.e. `set FLASK_APP=api.py`)
 
 **Frontend** (Not Applicable currently)
 
