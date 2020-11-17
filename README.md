@@ -18,7 +18,7 @@ virtualenv venv (For first time only)
 source venv/bin/activate
 ```
 
-From the `/backend` folder run `pip install requirements.txt`. All required packages are included in the requirements file.
+From the `/backend` folder run `pip3 install requirements.txt`. All required packages are included in the requirements file.
 
 To run the application, run the following commands inside the `/backend` folder:
 
