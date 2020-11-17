@@ -11,6 +11,13 @@ The backend code follows [PEP-8 style guidelines](https://www.python.org/dev/pep
 
 - Authentication: `https://bit.ly/2Ipsvrl`
 
+It's recommended to run the project inside a virtual environment. To do this, run the following:
+
+```
+virtualenv venv (For first time only)
+source venv/bin/activate
+```
+
 From the `/backend` folder run `pip install requirements.txt`. All required packages are included in the requirements file.
 
 To run the application, run the following commands inside the `/backend` folder:
@@ -20,6 +27,7 @@ export FLASK_APP=api.py
 export FLASK_ENV=development
 flask run
 ```
+For `Windows` system, replace `export` command with `set` (e.g. `set FLASK_APP=api.py`)
 
 **Frontend** (Not Applicable currently)
 
@@ -44,6 +52,12 @@ python unit_tests.py
 
 Omit the `dropdb` command for the first time running the tests.
 
+### Roles and Permissions
+The current permissions are: `get:categories`, `post:bookmarks`, `patch:bookmarks`, and `delete:bookmarks`.
+The current roles for this web app are `user` and `admin` in the following arrangement:
+- `user` role has the following permissions: `get:categories` and `post:bookmarks`.
+- `admin` role has *all* the permissions listed above.
+
 ### Error Handling
 Errors are returned as JSON obejcts in the following format:
 
@@ -64,12 +78,6 @@ The Error types the API returns when requests fail are:
 | 404 | Not Found |
 | 405 | Method Not Allowed |
 | 422 | Unprocessable Entity |
-
-### Roles and Permissions
-The current permissions are: `get:categories`, `post:bookmarks`, `patch:bookmarks`, and `delete:bookmarks`.
-The current roles for this web app are `user` and `admin` in the following arrangement:
-- `user` role has the following permissions: `get:categories` and `post:bookmarks`.
-- `admin` role has *all* the permissions listed above.
 
 ### Endpoints
 **GET /bookmarks**
