@@ -34,7 +34,7 @@ For `Windows` system, replace `export` command with `set` (i.e. `set FLASK_APP=a
 If applicable; inside the `/frontend` folder, run the following commands to start the client:
 
 ```
-npm install // Only once to install dependencies
+npm install (Only once to install dependencies)
 npm start
 ```
 
