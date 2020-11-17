@@ -155,7 +155,7 @@ def requires_auth(permission=''):
             token = get_token_auth_header()
             try:
                 payload = verify_decode_jwt(token)
-            except:
+            except AuthError:
                 raise AuthError({
                     'code': 'unverified_token',
                     'description': 'Token unverified.'
