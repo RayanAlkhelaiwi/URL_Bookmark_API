@@ -7,9 +7,9 @@ A RESTful API that provides Bookmarked URLs to visit later.
 The backend code follows [PEP-8 style guidelines](https://www.python.org/dev/peps/pep-0008/).
 
 ### Getting Started
-- Base URL: `https://url-bookmark.herokuapp.com/`
+- Base URL: https://url-bookmark.herokuapp.com/
 
-- Authentication: `https://bit.ly/2Ipsvrl`
+- Authentication: https://bit.ly/2Ipsvrl
 
 It's recommended to run the project inside a virtual environment. To do this, run the following:
 
@@ -18,7 +18,7 @@ virtualenv venv (For first time only)
 source venv/bin/activate
 ```
 
-From the `/backend` folder run `pip install requirements.txt`. All required packages are included in the requirements file.
+From the `/backend` folder run `pip3 install requirements.txt`. All required packages are included in the requirements file.
 
 To run the application, run the following commands inside the `/backend` folder:
 
@@ -29,12 +29,12 @@ flask run
 ```
 For `Windows` system, replace `export` command with `set` (i.e. `set FLASK_APP=api.py`)
 
-**Frontend** (Not Applicable currently)
+**Frontend** (Not Applicable)
 
 If applicable; inside the `/frontend` folder, run the following commands to start the client:
 
 ```
-npm install // Only once to install dependencies
+npm install (Only once to install dependencies)
 npm start
 ```
 
