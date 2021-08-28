@@ -1,4 +1,4 @@
-# URL Bookmark
+# URL Bookmark API
 [![made-with-python](https://img.shields.io/badge/Backend-Python-1F425F.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-Green.svg)](https://opensource.org/licenses/MIT)
 
